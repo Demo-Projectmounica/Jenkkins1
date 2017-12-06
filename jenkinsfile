@@ -1,0 +1,23 @@
+#!/usr/bin/env groovy
+
+properties([[$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/chmounica4/webhooks.git/'], pipelineTriggers([githubPush()])])pipeline {
+    agent any 
+    
+    stages {
+        stage('Build') { 
+            steps { 
+                echo 'make changes'
+            }
+        }
+        stage('Test'){
+            steps {
+                echo 'make check changes'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'make publish'
+            }
+        }
+    }
+}
